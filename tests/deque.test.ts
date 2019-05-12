@@ -3,8 +3,19 @@ import { Deque } from '../index';
 describe('Deque', () => {
   const tests = [
     {
+      /**
+       * Put here Deque.prototype methods
+       * which is called in this particular order during the test.
+       */
       methods: [Deque.prototype.push],
+      /**
+       * Put here arguments for methods specified above.
+       */
       args: [1],
+      /**
+       * Define expect function which takes deque.
+       * You might check some state using jest's expect.
+       */
       expect: (deque: Deque<number>) => expect(deque.tail && deque.tail.val).toEqual(1)
     },
     {
