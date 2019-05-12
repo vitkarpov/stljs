@@ -37,5 +37,5 @@ deque.push(2);
 deque.push(3);
 
 // returns 1, in O(1) time
-deque.unshift();
+deque.shift();
 ```
