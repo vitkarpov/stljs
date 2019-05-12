@@ -22,7 +22,7 @@
     "check": "gts check",
     "clean": "gts clean",
     "compile": "tsc -p .",
-    "fix": "gts fix && prettier '**/*.ts' --write",
+    "fix": "gts fix && prettier 'src/*.ts' 'tests/*.ts' --write",
     "test": "jest -c jest.config.js"
   }
 }
