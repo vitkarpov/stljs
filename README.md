@@ -21,7 +21,7 @@ if (remove_position == AT_START) {
 }
 ```
 
-As you can see it moves the elements to relayout memory, as you might expected. It's `O(n)` in worst case.
+As you can see it moves the elements to relayout memory, as you might expect. It's `O(n)` in worst case.
 
 ## Deque
 
