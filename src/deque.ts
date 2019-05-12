@@ -16,7 +16,7 @@ export class Deque<T> {
     const next = new Node<T>(val);
 
     if (!this.tail) {
-      this.tail = next;
+      this.head = this.tail = next;
     } else {
       this.tail.next = next;
       this.tail = this.tail.next;
