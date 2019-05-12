@@ -2,7 +2,7 @@
   "name": "stljs",
   "version": "0.1.0",
   "description": "Do you need a deque with O(1) for {push,pop}_{back,front} in JavaScript? We have some! It's STL for your {Type,Java}Script projects.",
-  "main": "index.js",
+  "main": "build/src/index.js",
   "repository": "https://github.com/vitkarpov/stljs",
   "author": {
     "name": "Viktor Karpov",
@@ -10,7 +10,10 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/jest": "^24.0.12",
     "gts": "^1.0.0",
+    "jest": "^24.8.0",
+    "ts-jest": "^24.0.2",
     "typescript": "~3.4.0"
   },
   "scripts": {
@@ -18,8 +21,6 @@
     "clean": "gts clean",
     "compile": "tsc -p .",
     "fix": "gts fix",
-    "prepare": "npm run compile",
-    "pretest": "npm run compile",
-    "posttest": "npm run check"
+    "test": "jest -c jest.config.js"
   }
 }
