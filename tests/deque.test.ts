@@ -19,16 +19,20 @@ describe('Deque', () => {
       expect: (deque: Deque<number>) => {
         expect(deque.head && deque.head.val).toEqual(1);
         expect(deque.tail && deque.tail.val).toEqual(1);
-      }
+      },
     },
     {
-      methods: [Deque.prototype.push, Deque.prototype.push, Deque.prototype.push],
+      methods: [
+        Deque.prototype.push,
+        Deque.prototype.push,
+        Deque.prototype.push,
+      ],
       args: [1, 2, 3],
       expect: (deque: Deque<number>) => {
         expect(deque.head && deque.head.val).toEqual(1);
         expect(deque.tail && deque.tail.val).toEqual(3);
-      }
-    }
+      },
+    },
   ];
   tests.forEach(({ methods, args, expect }, i) => {
     it(`test #${i}`, () => {
