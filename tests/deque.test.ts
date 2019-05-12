@@ -1,10 +1,21 @@
 import { Deque } from '../index';
 
 describe('Deque', () => {
-  describe('#push', () => {
-    it("returns the new tail's value", () => {
+  const tests = [
+    {
+      methods: [Deque.prototype.push],
+      args: [1],
+      expect: (deque: Deque<number>) => expect(deque.tail && deque.tail.val).toEqual(1)
+    }
+  ];
+  tests.forEach(({ methods, args, expect }, i) => {
+    it(`test #${i}`, () => {
       const deque = new Deque<number>();
-      expect(deque.push(1)).toEqual(1);
+
+      methods.forEach((method, i) => {
+        method.call(deque, args[i]);
+      });
+      expect(deque);
     });
   });
 });
