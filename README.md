@@ -36,6 +36,17 @@ deque.push(1);
 deque.push(2);
 deque.push(3);
 
-// returns 1, in O(1) time
-deque.shift();
+// adds an element to the head in O(1) time
+deque.unshift(1);
 ```
+
+### Benchmarks 🚀
+
+`Array#unshift` works in `O(n)` time and `Deque#unshift` works in O(1) time, check out the benchmarks:
+
+| Name          | Total iterations | Iterations per second  |
+| ------------- | ---------------- | ---------------------- |
+| array#unshift | 325              | 74                     |
+| deque#unshift | 46,938           | 10,672                 |
+
+> Note: tests run ~4s on 10.000 items
