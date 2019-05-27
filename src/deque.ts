@@ -39,4 +39,47 @@ export class Deque<T> {
     this.tail = prev;
     return val;
   }
+  unshift(val: T): T {
+    const head = new Node<T>(val);
+
+    if (!this.head) {
+      this.head = this.tail = head;
+    } else {
+      this.head.prev = head;
+      head.next = this.head;
+      this.head = head;
+    }
+    return val;
+  }
+  shift(): T {
+    if (!this.head) {
+      throw new RangeError('Cannot shift. Your container is empty.');
+    }
+    if (this.head === this.tail) {
+      const val = this.head.val;
+      this.head = this.tail = undefined;
+      return val;
+    }
+    const val = this.head.val;
+    const next = this.head.next as Node<T>;
+    next.prev = undefined;
+    this.head = next;
+    return val;
+  }
+  front() {
+    if (!this.head) {
+      throw new RangeError(
+        'Cannot access the element. Your container is empty.'
+      );
+    }
+    return this.head.val;
+  }
+  back() {
+    if (!this.tail) {
+      throw new RangeError(
+        'Cannot access the element. Your container is empty.'
+      );
+    }
+    return this.tail.val;
+  }
 }
