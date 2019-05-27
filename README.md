@@ -19,7 +19,7 @@ Compliant with **JavaScript Array API**.
 
 ### Benchmarks 🚀
 
-`Array#unshift` works in `O(n)` time and `Deque#unshift` works in O(1) time, check out the benchmarks:
+`Array#unshift` works in `O(n)` time and `Deque#unshift` works in `O(1)` time, check out the benchmarks:
 
 | Name          | Total iterations | Iterations per second  |
 | ------------- | ---------------- | ---------------------- |
