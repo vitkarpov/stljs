@@ -26,6 +26,6 @@
     "compile": "tsc -p .",
     "fix": "gts fix && prettier 'src/*.ts' 'tests/*.ts' --write",
     "test": "jest -c jest.config.js",
-    "benchmarks": "concurrently 'node benchmarks/deque-vs-array-shift.js' 'node benchmarks/deque-vs-array-unshift.js'"
+    "benchmarks": "concurrently 'node benchmarks/deque-vs-array-shift.js' 'node benchmarks/deque-vs-array-unshift.js' 'node benchmarks/deque-vs-array-push.js' 'node benchmarks/deque-vs-array-pop.js'"
   }
 }

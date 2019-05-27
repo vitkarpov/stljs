@@ -24,7 +24,7 @@ Compliant with **JavaScript Array API**.
 | Name          | Total iterations | Iterations per second  |
 | ------------- | ---------------- | ---------------------- |
 | deque#unshift | 46,938           | 10,672                 |
-| array#unshift | 325              | 74                     |
+| array#unshift |    325           |     74                 |
 
 `Array#shift` is optimized though, works **faster** than `Deque#shift` just on ~20%:
 
@@ -32,6 +32,18 @@ Compliant with **JavaScript Array API**.
 | ------------- | ---------------- | ---------------------- |
 | array#shift   | 2,785,723,217    | 633,983,435            |
 | deque#shift   | 2,263,189,082    | 515,650,280            |
+
+`Array#push` and `Array#pop` works faster as expected:
+
+| Name          | Total iterations | Iterations per second  |
+| ------------- | ---------------- | ---------------------- |
+| array#push    | 55,567           | 13,214                 |
+| deque#push    | 23,356           |  5,278                 |
+
+| Name          | Total iterations | Iterations per second  |
+| ------------- | ---------------- | ---------------------- |
+| array#pop     | 1,712,950,723    | 1,334,438,329          |
+| deque#pop     |   388,688,614    |   301,159,631          |
 
 > Note: tests run ~4s on 10.000 items
 
