@@ -11,9 +11,12 @@ class Node<T> {
 export class Deque<T> {
   head?: Node<T>;
   tail?: Node<T>;
+  length = 0;
 
   push(val: T): T {
     const next = new Node<T>(val);
+
+    this.length++;
 
     if (!this.tail) {
       this.head = this.tail = next;
@@ -28,6 +31,9 @@ export class Deque<T> {
     if (!this.tail) {
       throw new RangeError('Cannot pop. Your container is empty.');
     }
+
+    this.length--;
+
     if (this.head === this.tail) {
       const val = this.tail.val;
       this.head = this.tail = undefined;
@@ -42,6 +48,8 @@ export class Deque<T> {
   unshift(val: T): T {
     const head = new Node<T>(val);
 
+    this.length++;
+
     if (!this.head) {
       this.head = this.tail = head;
     } else {
@@ -55,6 +63,9 @@ export class Deque<T> {
     if (!this.head) {
       throw new RangeError('Cannot shift. Your container is empty.');
     }
+
+    this.length--;
+
     if (this.head === this.tail) {
       const val = this.head.val;
       this.head = this.tail = undefined;
