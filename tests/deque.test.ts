@@ -89,4 +89,68 @@ describe('Deque', () => {
       );
     });
   });
+  describe('shift & unshift scenarious', () => {
+    it('test #0', () => {
+      const deque = new Deque<number>();
+
+      deque.push(1);
+      deque.push(2);
+      deque.unshift(3);
+
+      expect(deque.head && deque.head.val).toBe(3);
+    });
+    it('test #1', () => {
+      const deque = new Deque<number>();
+
+      deque.push(1);
+      deque.push(2);
+      deque.shift();
+
+      expect(deque.head && deque.head.val).toBe(2);
+      expect(deque.tail && deque.tail.val).toBe(2);
+    });
+  });
+  describe('#shift', () => {
+    it('throws an error called on empty container', () => {
+      const deque = new Deque<number>();
+
+      expect(() => deque.shift()).toThrowError(
+        'Cannot shift. Your container is empty.'
+      );
+    });
+  });
+  describe('#front', () => {
+    it('throws an error called on empty container', () => {
+      const deque = new Deque<number>();
+
+      expect(() => deque.front()).toThrowError(
+        'Cannot access the element. Your container is empty.'
+      );
+    });
+    it('test #0', () => {
+      const deque = new Deque<number>();
+
+      deque.push(1);
+      deque.push(2);
+      deque.push(3);
+      expect(deque.front()).toBe(1);
+    });
+  });
+  describe('#back', () => {
+    it('throws an error called on empty container', () => {
+      const deque = new Deque<number>();
+
+      expect(() => deque.back()).toThrowError(
+        'Cannot access the element. Your container is empty.'
+      );
+    });
+    it('test #0', () => {
+      const deque = new Deque<number>();
+
+      deque.push(1);
+      deque.push(2);
+      deque.push(3);
+      expect(deque.back()).toBe(3);
+    });
+  });
 });
