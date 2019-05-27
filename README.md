@@ -47,7 +47,9 @@ Compliant with **JavaScript Array API**.
 
 > Note: tests run ~4s on 10.000 items
 
-### push
+### API
+
+#### push
 
 ```ts
 import { Deque } from 'stljs';
@@ -57,7 +59,7 @@ deque.push(1);
 deque.back();
 ```
 
-### pop
+#### pop
 
 ```ts
 import { Deque } from 'stljs';
@@ -67,7 +69,7 @@ deque.push(1);
 deque.pop();
 ```
 
-### unshift
+#### unshift
 
 ```ts
 import { Deque } from 'stljs';
@@ -79,7 +81,7 @@ deque.unshift(1);
 deque.front();
 ```
 
-### shift
+#### shift
 
 ```ts
 import { Deque } from 'stljs';
@@ -91,7 +93,7 @@ deque.push(3);
 deque.shift();
 ```
 
-### length
+#### length
 
 ```ts
 import { Deque } from 'stljs';
