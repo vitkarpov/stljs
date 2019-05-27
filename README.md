@@ -26,7 +26,7 @@ Compliant with **JavaScript Array API**.
 | deque#unshift | 46,938           | 10,672                 |
 | array#unshift |    325           |     74                 |
 
-`Array#shift` is optimized though, works **faster** than `Deque#shift` just on ~20%:
+`Array#shift` is optimized though, works **faster** than `Deque#shift` on ~20%:
 
 | Name          | Total iterations | Iterations per second  |
 | ------------- | ---------------- | ---------------------- |
