@@ -153,4 +153,43 @@ describe('Deque', () => {
       expect(deque.back()).toBe(3);
     });
   });
+  describe('#length', () => {
+    it('test #0', () => {
+      const deque = new Deque<number>();
+
+      expect(deque.length).toBe(0);
+    });
+    it('test #1', () => {
+      const deque = new Deque<number>();
+      deque.push(1);
+      deque.push(2);
+      deque.push(3);
+
+      expect(deque.length).toBe(3);
+    });
+    it('test #2', () => {
+      const deque = new Deque<number>();
+      deque.push(1);
+      deque.push(2);
+      deque.pop();
+      deque.push(3);
+      deque.unshift(4);
+      deque.shift();
+      deque.unshift(5);
+
+      expect(deque.length).toBe(3);
+    });
+    it('test #3', () => {
+      const deque = new Deque<number>();
+      const result = [];
+      deque.push(1);
+      deque.push(2);
+      deque.push(3);
+
+      while (deque.length > 0) {
+        result.push(deque.pop());
+      }
+      expect(result).toStrictEqual([3, 2, 1]);
+    });
+  });
 });
