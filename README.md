@@ -37,8 +37,8 @@ Compliant with **JavaScript Array API**.
 
 | Name          | Total iterations | Iterations per second  |
 | ------------- | ---------------- | ---------------------- |
-| array#push   | 55,567            | 13,214                 |
-| deque#push   | 23,356            |  5,278                 |
+| array#push    | 55,567           | 13,214                 |
+| deque#push    | 23,356           |  5,278                 |
 
 | Name          | Total iterations | Iterations per second  |
 | ------------- | ---------------- | ---------------------- |
