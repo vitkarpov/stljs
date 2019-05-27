@@ -25,20 +25,7 @@ As you can see it moves the elements to relayout memory, as you might expect. It
 
 ## Deque
 
-Compliant with **JavaScript Array API**: `push`, `pop`, `shift`, `unshift`.
-
-```ts
-import { Deque } from 'stljs/src/deque';
-
-const deque = new Deque<number>()
-
-deque.push(1);
-deque.push(2);
-deque.push(3);
-
-// adds an element to the head in O(1) time
-deque.unshift(1);
-```
+Compliant with **JavaScript Array API**.
 
 ### Benchmarks 🚀
 
@@ -50,3 +37,63 @@ deque.unshift(1);
 | deque#unshift | 46,938           | 10,672                 |
 
 > Note: tests run ~4s on 10.000 items
+
+
+### push
+
+```ts
+import { Deque } from 'stljs';
+const deque = new Deque<number>()
+deque.push(1);
+// 1
+deque.back();
+```
+
+### pop
+
+```ts
+import { Deque } from 'stljs';
+const deque = new Deque<number>()
+deque.push(1);
+// 1
+deque.pop();
+```
+
+### unshift
+
+```ts
+import { Deque } from 'stljs';
+const deque = new Deque<number>()
+deque.push(2);
+deque.push(3);
+deque.unshift(1);
+// 1
+deque.front();
+```
+
+### shift
+
+```ts
+import { Deque } from 'stljs';
+const deque = new Deque<number>()
+deque.push(1);
+deque.push(2);
+deque.push(3);
+// 1
+deque.shift();
+```
+
+### length
+
+```ts
+import { Deque } from 'stljs';
+const deque = new Deque<number>()
+deque.push(1);
+deque.push(2);
+deque.push(3);
+
+while (deque.length > 0) {
+  // 3, 2, 1
+  deque.pop();
+}
+```
