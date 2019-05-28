@@ -18,8 +18,8 @@ describe('Deque', () => {
          * You might check some state using jest's expect.
          */
         expect: (deque: Deque<number>) => {
-          expect(deque.head && deque.head.val).toEqual(1);
-          expect(deque.tail && deque.tail.val).toEqual(1);
+          expect(deque.front()).toEqual(1);
+          expect(deque.back()).toEqual(1);
         },
       },
       {
@@ -30,8 +30,8 @@ describe('Deque', () => {
         ],
         args: [1, 2, 3],
         expect: (deque: Deque<number>) => {
-          expect(deque.head && deque.head.val).toEqual(1);
-          expect(deque.tail && deque.tail.val).toEqual(3);
+          expect(deque.front()).toEqual(1);
+          expect(deque.back()).toEqual(3);
         },
       },
       {
@@ -44,8 +44,8 @@ describe('Deque', () => {
         ],
         args: [1, 2, 3, null, null],
         expect: (deque: Deque<number>) => {
-          expect(deque.head && deque.head.val).toEqual(1);
-          expect(deque.tail && deque.tail.val).toEqual(1);
+          expect(deque.front()).toEqual(1);
+          expect(deque.back()).toEqual(1);
         },
       },
       {
@@ -59,8 +59,8 @@ describe('Deque', () => {
         ],
         args: [1, 2, null, 3, null, 4],
         expect: (deque: Deque<number>) => {
-          expect(deque.head && deque.head.val).toEqual(1);
-          expect(deque.tail && deque.tail.val).toEqual(4);
+          expect(deque.front()).toEqual(1);
+          expect(deque.back()).toEqual(4);
         },
       },
     ];
@@ -97,7 +97,7 @@ describe('Deque', () => {
       deque.push(2);
       deque.unshift(3);
 
-      expect(deque.head && deque.head.val).toBe(3);
+      expect(deque.front()).toBe(3);
     });
     it('test #1', () => {
       const deque = new Deque<number>();
@@ -106,8 +106,8 @@ describe('Deque', () => {
       deque.push(2);
       deque.shift();
 
-      expect(deque.head && deque.head.val).toBe(2);
-      expect(deque.tail && deque.tail.val).toBe(2);
+      expect(deque.front()).toBe(2);
+      expect(deque.back()).toBe(2);
     });
   });
   describe('#shift', () => {

@@ -9,8 +9,8 @@ class Node<T> {
 }
 
 export class Deque<T> {
-  head?: Node<T>;
-  tail?: Node<T>;
+  private head?: Node<T>;
+  private tail?: Node<T>;
   length = 0;
 
   push(val: T): T {
