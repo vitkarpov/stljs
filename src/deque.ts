@@ -51,4 +51,12 @@ export class Deque<T> {
     }
     return this.q[this.end];
   }
+  at(pos: number) {
+    if (this.start + 1 + pos > this.end) {
+      throw new RangeError(
+        'Cannot access the element. Position is out of range.'
+      );
+    }
+    return this.q[this.start + 1 + pos];
+  }
 }

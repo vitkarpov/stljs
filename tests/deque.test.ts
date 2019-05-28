@@ -192,4 +192,54 @@ describe('Deque', () => {
       expect(result).toStrictEqual([3, 2, 1]);
     });
   });
+  describe('at', () => {
+    it('test #0', () => {
+      const deque = new Deque<number>();
+      deque.push(1);
+      deque.push(2);
+      deque.push(3);
+      deque.unshift(4);
+      deque.unshift(5);
+
+      expect(deque.at(2)).toBe(1);
+    });
+    it('test #1', () => {
+      const deque = new Deque<number>();
+      deque.push(1);
+      deque.push(2);
+      deque.push(3);
+
+      expect(deque.at(2)).toBe(3);
+    });
+    it('test #2', () => {
+      const deque = new Deque<number>();
+      deque.push(1);
+      deque.push(2);
+      deque.push(3);
+      deque.pop();
+      deque.pop();
+
+      expect(deque.at(0)).toBe(1);
+    });
+    it('test #3', () => {
+      const deque = new Deque<number>();
+      deque.push(1);
+      deque.push(2);
+
+      expect(() => deque.at(2)).toThrowError(
+        'Cannot access the element. Position is out of range.'
+      );
+    });
+    it('test #4', () => {
+      const deque = new Deque<number>();
+      deque.push(1);
+      deque.push(2);
+      deque.pop();
+      deque.pop();
+
+      expect(() => deque.at(0)).toThrowError(
+        'Cannot access the element. Position is out of range.'
+      );
+    });
+  });
 });
