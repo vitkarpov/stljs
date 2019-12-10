@@ -203,7 +203,7 @@ describe('Deque', () => {
       for (const item of deque) {
         result.push(item);
       }
-      expect(result).toStrictEqual([1, 2, 3, 4]);
+      expect(result).toStrictEqual([1, 2, 3]);
     });
   });
 });
