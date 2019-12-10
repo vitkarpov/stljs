@@ -4,10 +4,13 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: yarn test
+      - uses: actions/checkout@v1
+      - uses: borales/actions-yarn@v2.1.0
+        with:
+          cmd: install
+      - uses: borales/actions-yarn@v2.1.0
+        with:
+          cmd: test
