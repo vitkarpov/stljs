@@ -93,4 +93,18 @@ export class Deque<T> {
     }
     return this.tail.val;
   }
+  [Symbol.iterator]() {
+    let curr = this.head;
+
+    return {
+      next() {
+        const result = {
+          value: curr && curr.val,
+          done: !curr,
+        };
+        curr && (curr = curr.next);
+        return result;
+      },
+    };
+  }
 }

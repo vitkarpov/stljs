@@ -192,4 +192,18 @@ describe('Deque', () => {
       expect(result).toStrictEqual([3, 2, 1]);
     });
   });
+  describe('iterators', () => {
+    it('test #0', () => {
+      const deque = new Deque<number>();
+      const result = [];
+      deque.push(1);
+      deque.push(2);
+      deque.push(3);
+
+      for (const item of deque) {
+        result.push(item);
+      }
+      expect(result).toStrictEqual([1, 2, 3]);
+    });
+  });
 });
