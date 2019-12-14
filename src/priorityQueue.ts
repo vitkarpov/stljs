@@ -49,10 +49,13 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
     const right = 2 * max + 2;
     let curr = max;
 
-    if (left <= this.q.length && this.q[left] > this.q[curr]) {
+    if (left <= this.q.length && this.comparator(this.q[left], this.q[curr])) {
       curr = left;
     }
-    if (right <= this.q.length && this.q[right] > this.q[curr]) {
+    if (
+      right <= this.q.length &&
+      this.comparator(this.q[right], this.q[curr])
+    ) {
       curr = right;
     }
     if (curr !== max) {
