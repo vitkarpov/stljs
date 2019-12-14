@@ -22,8 +22,12 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
     if (this.q.length === 0) {
       throw new RangeError('Cannot pop. Your container is empty.');
     }
-    this.q[0] = this.q.pop() as T;
-    this.sinkDown(0);
+    if (this.size() === 1) {
+      this.q.pop();
+    } else {
+      this.q[0] = this.q.pop() as T;
+      this.sinkDown(0);
+    }
   }
 
   size() {

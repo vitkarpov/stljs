@@ -36,5 +36,13 @@ describe('PriorityQueue', () => {
 
       expect(heap.top()).toBe(5);
     });
+    it('test #2', () => {
+      const heap = new PriorityQueue<number>((a, b) => a - b < 0);
+
+      heap.push(-3);
+      heap.pop();
+
+      expect(heap.size()).toBe(0);
+    });
   });
 });
