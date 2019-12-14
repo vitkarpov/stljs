@@ -1,4 +1,10 @@
-export class PriorityQueue<T> {
+export interface IPriorityQueue<T> {
+  top(): T;
+  push(val: T): void;
+  pop(): void;
+}
+
+export class PriorityQueue<T> implements IPriorityQueue<T> {
   constructor(comparator: (a: T, b: T) => boolean) {
     this.comparator = comparator;
   }
