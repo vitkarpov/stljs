@@ -26,6 +26,10 @@ export class PriorityQueue<T> implements IPriorityQueue<T> {
     this.sinkDown(0);
   }
 
+  size() {
+    return this.q.length;
+  }
+
   private q: T[] = [];
   private comparator: (a: T, b: T) => boolean;
   private bubbleUp() {
