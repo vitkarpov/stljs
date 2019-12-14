@@ -1,4 +1,10 @@
-export class PriorityQueue<T> {
+export interface IPriorityQueue<T> {
+  top(): T;
+  push(val: T): void;
+  pop(): void;
+}
+
+export class PriorityQueue<T> implements IPriorityQueue<T> {
   constructor(comparator: (a: T, b: T) => boolean) {
     this.comparator = comparator;
   }
@@ -16,8 +22,16 @@ export class PriorityQueue<T> {
     if (this.q.length === 0) {
       throw new RangeError('Cannot pop. Your container is empty.');
     }
-    this.q[0] = this.q.pop() as T;
-    this.sinkDown(0);
+    if (this.size() === 1) {
+      this.q.pop();
+    } else {
+      this.q[0] = this.q.pop() as T;
+      this.sinkDown(0);
+    }
+  }
+
+  size() {
+    return this.q.length;
   }
 
   private q: T[] = [];
@@ -43,10 +57,13 @@ export class PriorityQueue<T> {
     const right = 2 * max + 2;
     let curr = max;
 
-    if (left <= this.q.length && this.q[left] > this.q[curr]) {
+    if (left <= this.q.length && this.comparator(this.q[left], this.q[curr])) {
       curr = left;
     }
-    if (right <= this.q.length && this.q[right] > this.q[curr]) {
+    if (
+      right <= this.q.length &&
+      this.comparator(this.q[right], this.q[curr])
+    ) {
       curr = right;
     }
     if (curr !== max) {
