@@ -206,4 +206,15 @@ describe('Deque', () => {
       expect(result).toStrictEqual([1, 2, 3]);
     });
   });
+  describe('constructor', () => {
+    it('takes an array of values', () => {
+      const deque = new Deque<number>([1, 2, 3]);
+
+      const result = [];
+      for (const item of deque) {
+        result.push(item);
+      }
+      expect(result).toStrictEqual([1, 2, 3]);
+    });
+  });
 });

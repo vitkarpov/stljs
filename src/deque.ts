@@ -13,6 +13,10 @@ export class Deque<T> {
   tail?: Node<T>;
   length = 0;
 
+  constructor(vals?: T[]) {
+    vals && vals.forEach(val => this.push(val));
+  }
+
   push(val: T): T {
     const next = new Node<T>(val);
 
