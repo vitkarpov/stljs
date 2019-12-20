@@ -17,20 +17,24 @@ export class Deque<T> {
     vals && vals.forEach(val => this.push(val));
   }
 
-  push(val: T): T {
-    const next = new Node<T>(val);
+  push(...vals: T[]): T {
+    const push = (val: T) => {
+      const next = new Node<T>(val);
 
-    this.length++;
+      this.length++;
 
-    if (!this.tail) {
-      this.head = this.tail = next;
-    } else {
-      this.tail.next = next;
-      next.prev = this.tail;
-      this.tail = this.tail.next;
-    }
-    return this.tail.val;
+      if (!this.tail) {
+        this.head = this.tail = next;
+      } else {
+        this.tail.next = next;
+        next.prev = this.tail;
+        this.tail = this.tail.next;
+      }
+    };
+    vals.forEach(push);
+    return (this.tail as Node<T>).val;
   }
+
   pop(): T {
     if (!this.tail) {
       throw new RangeError('Cannot pop. Your container is empty.');

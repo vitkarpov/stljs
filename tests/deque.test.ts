@@ -217,4 +217,17 @@ describe('Deque', () => {
       expect(result).toStrictEqual([1, 2, 3]);
     });
   });
+  describe('push multiple values', () => {
+    it('test #0', () => {
+      const deque = new Deque<number>();
+
+      deque.push(1, 2, 3);
+
+      const result = [];
+      for (const item of deque) {
+        result.push(item);
+      }
+      expect(result).toStrictEqual([1, 2, 3]);
+    });
+  });
 });
