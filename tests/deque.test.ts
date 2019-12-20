@@ -195,15 +195,34 @@ describe('Deque', () => {
   describe('iterators', () => {
     it('test #0', () => {
       const deque = new Deque<number>();
-      const result = [];
       deque.push(1);
       deque.push(2);
       deque.push(3);
 
-      for (const item of deque) {
-        result.push(item);
-      }
-      expect(result).toStrictEqual([1, 2, 3]);
+      expect(getValues(deque)).toStrictEqual([1, 2, 3]);
+    });
+  });
+  describe('constructor', () => {
+    it('takes an array of values', () => {
+      const deque = new Deque<number>([1, 2, 3]);
+
+      expect(getValues(deque)).toStrictEqual([1, 2, 3]);
+    });
+  });
+  describe('push multiple values', () => {
+    it('test #0', () => {
+      const deque = new Deque<number>();
+      deque.push(1, 2, 3);
+
+      expect(getValues(deque)).toStrictEqual([1, 2, 3]);
     });
   });
 });
+
+function getValues(deque: Deque<number>) {
+  const result = [];
+  for (const item of deque) {
+    result.push(item);
+  }
+  return result;
+}
